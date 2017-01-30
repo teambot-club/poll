@@ -1,0 +1,22 @@
+{
+    "name": "teambot-poll",
+    "version": "0.0.1",
+    "description": "Poll skill for Teambot",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/teambot-club/teambot-poll.git"
+    },
+    "keywords": [
+        "ecosystem:teambot",
+        "teambot:slack"
+    ],
+    "author": "Teambot Team",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/teambot-club/teambot-poll/issues"
+    },
+    "homepage": "https://github.com/teambot-club/teambot-poll#readme"
+}
