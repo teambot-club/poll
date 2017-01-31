@@ -32,21 +32,35 @@ var Poll = function(controller) {
 
             try {
                 var args = getPollArgs(message);
-                var q = args[0];
+                var question = args[0];
 
                 // handle missing args? 
                 // if only question is present, ask for choices
                 // if only one choice is present, ask for more?
+                // handle for more than 9 choices?
 
-                var reply = q + consts.newLine;
+                var pollContent = question + consts.newLine;
+                var actions = [];
                 for (var i = 1; i < args.length; i++) {
-                    reply += consts.indexBullets[i] + consts.space;
-                    reply += args[i] + consts.newLine;
+                    pollContent += consts.indexBullets[i] + consts.space;
+                    pollContent += args[i] + consts.newLine;
+
+                    actions.push({
+                        "name": i,
+                        "text": consts.indexBullets[i],
+                        "value": i,
+                        "type": "button"
+                    });
                 }
 
-                bot.reply(message, reply);
-                //bot.reply(message, q + '\n test');
-                //bot.reply(message, '\n line 2');
+                bot.reply(message, {
+                    attachments: [{
+                        title: pollContent,
+                        callback_id: '123',
+                        attachment_type: 'default',
+                        actions: actions
+                    }]
+                });
             } catch (ex) {
                 bot.reply(message, "Oops, exception " + ex);
             }
